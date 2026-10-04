@@ -3,15 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { login } from "../utils/auth";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!email || !password || !role) {
-      alert("Please fill all fields");
+    if (!role) {
+      alert("Choose a demo role to continue");
       return;
     }
     login(role);
@@ -29,33 +27,22 @@ export default function Login() {
           <p style={styles.subtitle}>
             Real-Time Food Redistribution Platform
           </p>
+          <p style={styles.demoNotice}>
+            Demo role selection only. This application does not authenticate users.
+          </p>
         </div>
 
         {/* LOGIN FORM */}
         <form onSubmit={handleSubmit} style={styles.form}>
-          <input
-            type="email"
-            placeholder="Email address"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-          />
-
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-          />
-
           <select value={role} onChange={e => setRole(e.target.value)}>
-            <option value="">Login as</option>
+            <option value="">Choose demo role</option>
             <option value="Donor">Donor</option>
             <option value="NGO">NGO</option>
             <option value="Volunteer">Volunteer</option>
             <option value="Admin">Admin</option>
           </select>
 
-          <button className="btn">Login</button>
+          <button className="btn">Continue in demo mode</button>
         </form>
 
       </div>
@@ -97,6 +84,15 @@ const styles = {
     marginTop: "6px",
     fontSize: "14px",
     color: "#6b7280"
+  },
+  demoNotice: {
+    margin: "12px 0 0",
+    fontSize: "13px",
+    lineHeight: 1.5,
+    color: "#92400e",
+    background: "#fffbeb",
+    borderRadius: "10px",
+    padding: "10px 12px",
   },
   form: {
     display: "flex",

@@ -10,6 +10,7 @@ import Listings from "./pages/Listings";
 import AddListing from "./pages/AddListing";
 import MyClaims from "./pages/MyClaims";
 import Login from "./pages/Login";
+import VerifyQR from "./pages/VerifyQR";
 
 import { getTheme, setTheme } from "./utils/theme";
 
@@ -40,7 +41,7 @@ export default function App() {
                 <Sidebar />
 
                 {/* MAIN CONTENT */}
-                <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+                <div style={{ flex: 1, display: "flex", flexDirection: "column", overflow: "hidden" }}>
                   
                   {/* TOP NAVBAR */}
                   <Navbar />
@@ -59,6 +60,7 @@ export default function App() {
                       <Route path="/listings" element={<Listings />} />
                       <Route path="/add" element={<AddListing />} />
                       <Route path="/claims" element={<MyClaims />} />
+                      <Route path="/verify" element={<VerifyQR />} />
                     </Routes>
                   </div>
 

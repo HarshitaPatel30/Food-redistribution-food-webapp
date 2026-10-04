@@ -1,8 +1,19 @@
+/* Base layout */
+.page {
+  padding: 24px;
+  max-width: 1200px;
+}
+
+/* Reset button borders */
+button { border: none; cursor: pointer; }
+
 input, select {
   padding: 12px;
   border-radius: 10px;
   border: 1px solid #ddd;
   font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 input:focus, select:focus {
@@ -134,7 +145,7 @@ input:focus, select:focus {
   background: white;
   border-radius: 18px;
   padding: 18px 22px;
-  box-shadow:
+  box-shadow: 0 8px 20px rgba(0,0,0,0.07);
 }
 
 

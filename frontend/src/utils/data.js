@@ -1,5 +1,6 @@
-export const getListings = () =>
-  JSON.parse(localStorage.getItem("listings")) || [];
+import { fetchAllListings, fetchAllClaims } from "./api";
 
-export const getClaims = () =>
-  JSON.parse(localStorage.getItem("claims")) || [];
+// Compatibility helpers use the API; application records are never stored in localStorage.
+export const getListings = () => fetchAllListings();
+
+export const getClaims = () => fetchAllClaims();
